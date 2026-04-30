@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sponsor a Job — Workstream Talent Community</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f5f7;
+  --white: #ffffff;
+  --border: #e4e4e9;
+  --border2: #d0d0d8;
+  --text: #1a1a2e;
+  --text2: #4a4a6a;
+  --text3: #8888a8;
+  --accent: #2563eb;
+  --accent-light: #eff4ff;
+  --accent-hover: #1d4ed8;
+  --green: #16a34a;
+  --green-light: #f0fdf4;
+  --green-mid: #bbf7d0;
+  --red: #dc2626;
+  --red-light: #fef2f2;
+  --orange: #ea580c;
+  --orange-light: #fff7ed;
+  --yellow-light: #fefce8;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 16px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.05);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --font: 'Figtree', sans-serif;
+  --font-serif: 'Instrument Serif', serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ── TOP NAV ── */
+.topnav {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--accent);
+}
+
+.nav-logo .logo-mark {
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text2);
+}
+
+.nav-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #dbeafe;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── SIDEBAR + MAIN ── */
+.shell {
+  display: flex;
+  min-height: calc(100vh - 56px);
+}
+
+.sidebar {
+  width: 220px;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  padding: 20px 0;
+  flex-shrink: 0;
+}
+
+.sidebar-section {
+  padding: 0 12px;
+  margin-bottom: 4px;
+}
+
+.sidebar-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text3);
+  padding: 8px 8px 4px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sidebar-item:hover { background: var(--bg); color: var(--text); }
+.sidebar-item.active { background: var(--accent-light); color: var(--accent); font-weight: 600; }
+
+.sidebar-icon { font-size: 15px; width: 18px; text-align: center; }
+
+/* ── MAIN CONTENT ── */
+.main {
+  flex: 1;
+  padding: 32px 40px;
+  max-width: 960px;
+}
+
+.page-header {
+  margin-bottom: 28px;
+}
+
+.page-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.page-header p {
+  color: var(--text2);
+  font-size: 13px;
+}
+
+/* ── STEP CARD ── */
+.step-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s;
+}
+
+.step-card.active { box-shadow: var(--shadow); }
+.step-card.completed { opacity: 0.85; }
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 24px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text3);
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.step-card.active .step-num {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.step-card.completed .step-num {
+  background: var(--green);
+  border-color: var(--green);
+  color: white;
+}
+
+.step-card.completed .step-num::after { content: '✓'; }
+.step-card.completed .step-num span { display: none; }
+
+.step-title-wrap { flex: 1; }
+
+.step-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.step-subtitle {
+  font-size: 12px;
+  color: var(--text3);
+  margin-top: 1px;
+}
+
+.step-summary {
+  font-size: 13px;
+  color: var(--text2);
+  background: var(--bg);
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.step-body {
+  display: none;
+  padding: 0 24px 24px;
+  border-top: 1px solid var(--border);
+  animation: slideDown 0.2s ease;
+}
+
+.step-card.active .step-body { display: block; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── JOB SELECTOR ── */
+.job-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+
+.job-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.job-option:hover { border-color: var(--accent); background: var(--accent-light); }
+.job-option.selected { border-color: var(--accent); background: var(--accent-light); }
+
+.job-radio {
+  width: 16px; height: 16px;
+  border: 2px solid var(--border2);
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+
+.job-option.selected .job-radio {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.job-option.selected .job-radio::after {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
+.job-info { flex: 1; }
+.job-name { font-weight: 600; font-size: 13px; }
+.job-loc { font-size: 12px; color: var(--text3); margin-top: 1px; }
+
+.job-badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 100px;
+  background: var(--bg);
+  color: var(--text2);
+  font-weight: 500;
+}
+
+/* ── MODE SELECTOR ── */
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.mode-card {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+
+.mode-card:hover { border-color: var(--accent); }
+.mode-card.selected { border-color: var(--accent); background: var(--accent-light); }
+
+.mode-card .mode-icon { font-size: 20px; margin-bottom: 6px; }
+.mode-card .mode-title { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+.mode-card .mode-desc { font-size: 11px; color: var(--text3); line-height: 1.4; }
+
+.mode-card.selected .mode-desc { color: #3b82f6; }
+
+.mode-badge {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: var(--accent);
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 100px;
+  letter-spacing: 0.3px;
+}
+
+/* ── GOAL INPUT ── */
+.goal-section { margin-top: 20px; }
+
+.goal-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.goal-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.number-input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--border2);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  width: 160px;
+}
+
+.num-btn {
+  width: 36px;
+  height: 40px;
+  background: var(--bg);
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s;
+  flex-shrink: 0;
+}
+
+.num-btn:hover { background: var(--border); }
+
+.num-field {
+  flex: 1;
+  border: none;
+  outline: none;
+  text-align: center;
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  background: transparent;
+  width: 60px;
+}
+
+.goal-unit {
+  font-size: 13px;
+  color: var(--text2);
+}
+
+.max-spend-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: var(--yellow-light);
+  border: 1px solid #fde68a;
+  border-radius: var(--radius-sm);
+}
+
+.max-spend-row label {
+  font-size: 12px;
+  color: var(--text2);
+  flex-shrink: 0;
+}
+
+.spend-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--white);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.spend-input-wrap span { color: var(--text3); font-size: 13px; }
+
+.spend-input-wrap input {
+  border: none;
+  outline: none;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  width: 80px;
+}
+
+/* ── RESULTS PANEL ── */
+.results-panel {
+  margin-top: 20px;
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+}
+
+.results-header {
+  background: var(--accent);
+  color: white;
+  padding: 12px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.results-body { padding: 18px; }
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.result-stat {
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  text-align: center;
+}
+
+.result-stat .val {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.result-stat .lbl {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 3px;
+}
+
+/* ── COMPARISON ── */
+.comparison-wrap {
+  margin-top: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.comparison-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.comp-col-head {
+  padding: 10px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text3);
+}
+
+.comp-col-head.ws { color: var(--accent); }
+.comp-col-head.indeed { color: var(--text3); }
+
+.comp-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid var(--border);
+}
+
+.comp-row:last-child { border-bottom: none; }
+
+.comp-cell {
+  padding: 10px 14px;
+  font-size: 13px;
+}
+
+.comp-cell.metric { color: var(--text2); font-size: 12px; }
+.comp-cell.ws-val { color: var(--green); font-weight: 600; }
+.comp-cell.indeed-val { color: var(--text3); }
+
+.comp-row:nth-child(odd) .comp-cell { background: rgba(0,0,0,0.012); }
+
+.win-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: var(--green-light);
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 100px;
+  margin-left: 4px;
+}
+
+/* ── RATE CARDS ── */
+.rate-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.rate-card {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  text-align: center;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+
+.rate-card:hover { border-color: var(--accent); }
+.rate-card.selected { border-color: var(--accent); background: var(--accent-light); }
+
+.rate-card .price {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.rate-card .per {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 2px;
+}
+
+.rate-card .desc {
+  font-size: 11px;
+  color: var(--text2);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* ── APPROVAL SECTION ── */
+.approval-box {
+  margin-top: 16px;
+  padding: 18px;
+  background: var(--green-light);
+  border: 1.5px solid var(--green-mid);
+  border-radius: var(--radius);
+}
+
+.approval-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.approval-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--text2);
+  padding: 5px 0;
+  border-bottom: 1px solid var(--green-mid);
+}
+
+.approval-line:last-of-type { border-bottom: none; }
+.approval-line .val { font-weight: 600; color: var(--text); }
+.approval-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 2px solid var(--green-mid);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.approval-total .val { color: var(--green); font-size: 18px; }
+
+/* ── CONFIRMATION ── */
+.confirmation-box {
+  text-align: center;
+  padding: 32px 24px;
+  display: none;
+}
+
+.confirmation-box.show { display: block; }
+
+.conf-icon {
+  width: 64px; height: 64px;
+  background: var(--green-light);
+  border: 2px solid var(--green-mid);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: 0 auto 16px;
+  animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes pop {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.conf-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.conf-sub {
+  font-size: 13px;
+  color: var(--text2);
+  margin-bottom: 24px;
+}
+
+.timeline-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  text-align: left;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.timeline-step {
+  display: flex;
+  gap: 14px;
+  padding: 10px 0;
+  position: relative;
+}
+
+.timeline-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 32px;
+  bottom: -10px;
+  width: 2px;
+  background: var(--border);
+}
+
+.tl-dot {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  z-index: 1;
+}
+
+.tl-dot.done { background: var(--green); border-color: var(--green); color: white; }
+.tl-dot.pending { background: var(--accent); border-color: var(--accent); color: white; }
+
+.tl-content .tl-title { font-size: 13px; font-weight: 600; }
+.tl-content .tl-time { font-size: 11px; color: var(--text3); margin-top: 1px; }
+
+/* ── BUTTONS ── */
+.btn-row { display: flex; gap: 10px; margin-top: 20px; justify-content: flex-end; }
+
+.btn {
+  padding: 9px 20px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+}
+
+.btn-primary { background: var(--accent); color: white; }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-primary:disabled { background: var(--border2); color: var(--text3); cursor: not-allowed; }
+.btn-secondary { background: var(--white); color: var(--text2); border: 1px solid var(--border2); }
+.btn-secondary:hover { background: var(--bg); }
+.btn-green { background: var(--green); color: white; padding: 11px 24px; font-size: 14px; }
+.btn-green:hover { background: #15803d; }
+
+/* ── INDEED COMPARISON BANNER ── */
+.indeed-banner {
+  background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%);
+  border: 1px solid #fcd34d;
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.indeed-banner .banner-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+
+.indeed-banner .banner-text { flex: 1; }
+.indeed-banner .banner-title { font-size: 13px; font-weight: 700; color: #92400e; margin-bottom: 3px; }
+.indeed-banner .banner-sub { font-size: 12px; color: #b45309; line-height: 1.4; }
+
+.indeed-banner .banner-stats {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.b-stat { text-align: center; }
+.b-stat .b-val { font-size: 18px; font-weight: 700; color: var(--text); }
+.b-stat .b-lbl { font-size: 10px; color: var(--text3); }
+
+/* Divider */
+.b-divider { width: 1px; background: #fcd34d; }
+
+/* ── PROGRESS ── */
+.progress-bar-wrap {
+  background: var(--border);
+  border-radius: 100px;
+  height: 4px;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 100px;
+  transition: width 0.4s ease;
+}
+
+/* pills */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.pill-blue { background: var(--accent-light); color: var(--accent); }
+.pill-green { background: var(--green-light); color: var(--green); }
+.pill-orange { background: var(--orange-light); color: var(--orange); }
+
+.divider { height: 1px; background: var(--border); margin: 16px 0; }
+
+.helper-text { font-size: 12px; color: var(--text3); margin-top: 8px; }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
+input[type=number] { -moz-appearance: textfield; }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <div class="nav-logo">
+    <div class="logo-mark">W</div>
+    Workstream
+  </div>
+  <div class="nav-right">
+    <span>Chick-fil-A — Sandy</span>
+    <div class="nav-avatar">TS</div>
+  </div>
+</nav>
+
+<div class="shell">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-item"><span class="sidebar-icon">🏠</span> Home</div>
+      <div class="sidebar-item"><span class="sidebar-icon">💬</span> Messages</div>
+      <div class="sidebar-item"><span class="sidebar-icon">📅</span> Scheduling</div>
+      <div class="sidebar-item"><span class="sidebar-icon">📊</span> Reporting</div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Hiring</div>
+      <div class="sidebar-item"><span class="sidebar-icon">👤</span> Applicants</div>
+      <div class="sidebar-item active"><span class="sidebar-icon">🎯</span> Sourcing Tools</div>
+      <div class="sidebar-item"><span class="sidebar-icon">📋</span> Job Postings</div>
+      <div class="sidebar-item"><span class="sidebar-icon">🌐</span> Talent Network</div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Team Management</div>
+      <div class="sidebar-item"><span class="sidebar-icon">🚀</span> Onboarding</div>
+      <div class="sidebar-item"><span class="sidebar-icon">👥</span> Team</div>
+      <div class="sidebar-item"><span class="sidebar-icon">📁</span> Documents</div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <div class="page-header">
+      <h1>Sponsor a Job — Talent Community</h1>
+      <p>Reach 500,000+ pre-qualified hourly workers. Higher show rates. Better quality candidates.</p>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progressBar" style="width: 25%"></div>
+    </div>
+
+    <!-- INDEED COMPARISON BANNER -->
+    <div class="indeed-banner">
+      <div class="banner-icon">✦</div>
+      <div class="banner-text">
+        <div class="banner-title">Get 3× better results than sponsoring on Indeed</div>
+        <div class="banner-sub">Workstream's Talent Community connects you directly with 500,000+ pre-qualified hourly workers near your location — people who actually show up, respond faster, and cost far less per hire.</div>
+        <div class="banner-stats">
+          <div class="b-stat">
+            <div class="b-val" style="color:var(--red)">~18%</div>
+            <div class="b-lbl">Indeed show rate</div>
+          </div>
+          <div class="b-divider"></div>
+          <div class="b-stat">
+            <div class="b-val" style="color:var(--green)">~62%</div>
+            <div class="b-lbl">Talent Community show rate</div>
+          </div>
+          <div class="b-divider"></div>
+          <div class="b-stat">
+            <div class="b-val" style="color:var(--red)">$85</div>
+            <div class="b-lbl">Indeed cost/interview</div>
+          </div>
+          <div class="b-divider"></div>
+          <div class="b-stat">
+            <div class="b-val" style="color:var(--green)">$32</div>
+            <div class="b-lbl">Our cost/interview</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 1: SELECT JOB -->
+    <div class="step-card active" id="step1">
+      <div class="step-header" onclick="toggleStep(1)">
+        <div class="step-num"><span>1</span></div>
+        <div class="step-title-wrap">
+          <div class="step-title">Select a job to sponsor</div>
+          <div class="step-subtitle">Choose from your active job postings</div>
+        </div>
+        <div class="step-summary" id="step1-summary" style="display:none"></div>
+      </div>
+      <div class="step-body">
+        <div class="job-list" id="jobList">
+          <div class="job-option" onclick="selectJob(this, 'Back of House Team Member', 'Sandy, UT')">
+            <div class="job-radio"></div>
+            <div class="job-info">
+              <div class="job-name">Back of House Team Member</div>
+              <div class="job-loc">📍 Sandy, UT</div>
+            </div>
+            <div class="job-badge">Part-time</div>
+          </div>
+          <div class="job-option" onclick="selectJob(this, 'Cashier', 'Sandy, UT')">
+            <div class="job-radio"></div>
+            <div class="job-info">
+              <div class="job-name">Cashier</div>
+              <div class="job-loc">📍 Sandy, UT</div>
+            </div>
+            <div class="job-badge">Full-time</div>
+          </div>
+          <div class="job-option" onclick="selectJob(this, 'Delivery Driver', 'Sandy, UT')">
+            <div class="job-radio"></div>
+            <div class="job-info">
+              <div class="job-name">Delivery Driver</div>
+              <div class="job-loc">📍 Sandy, UT</div>
+            </div>
+            <div class="job-badge">Part-time</div>
+          </div>
+          <div class="job-option" onclick="selectJob(this, 'Shift Lead', 'Sandy, UT')">
+            <div class="job-radio"></div>
+            <div class="job-info">
+              <div class="job-name">Shift Lead</div>
+              <div class="job-loc">📍 Sandy, UT</div>
+            </div>
+            <div class="job-badge">Full-time</div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary" id="step1-next" disabled onclick="completeStep(1)">Continue →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: SPONSORSHIP MODE -->
+    <div class="step-card" id="step2">
+      <div class="step-header" onclick="toggleStep(2)">
+        <div class="step-num"><span>2</span></div>
+        <div class="step-title-wrap">
+          <div class="step-title">Choose how to sponsor</div>
+          <div class="step-subtitle">Pick your preferred goal type</div>
+        </div>
+        <div class="step-summary" id="step2-summary" style="display:none"></div>
+      </div>
+      <div class="step-body">
+        <div class="mode-grid">
+          <div class="mode-card" onclick="selectMode(this, 'budget')">
+            <div class="mode-icon">💰</div>
+            <div class="mode-title">Set a budget</div>
+            <div class="mode-desc">Enter how much you want to spend and see how many candidates to expect</div>
+          </div>
+          <div class="mode-card" onclick="selectMode(this, 'candidates')">
+            <div class="mode-icon">👥</div>
+            <div class="mode-title">Set a candidate goal</div>
+            <div class="mode-desc">Tell us how many candidates you want and we'll suggest a spend</div>
+          </div>
+          <div class="mode-card selected" onclick="selectMode(this, 'interviews')">
+            <div class="mode-badge">DEFAULT</div>
+            <div class="mode-icon">🗓️</div>
+            <div class="mode-title">Set an interview goal</div>
+            <div class="mode-desc">Tell us how many interviews you want and we'll suggest what to budget</div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="goToStep(1)">← Back</button>
+          <button class="btn btn-primary" onclick="completeStep(2)">Continue →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: GOAL + ESTIMATE -->
+    <div class="step-card" id="step3">
+      <div class="step-header" onclick="toggleStep(3)">
+        <div class="step-num"><span>3</span></div>
+        <div class="step-title-wrap">
+          <div class="step-title" id="step3-title">Set your interview goal</div>
+          <div class="step-subtitle" id="step3-sub">We'll suggest a spend and show expected outcomes</div>
+        </div>
+        <div class="step-summary" id="step3-summary" style="display:none"></div>
+      </div>
+      <div class="step-body">
+
+        <div class="goal-section">
+          <div class="goal-label" id="goalLabel">How many interviews do you want?</div>
+          <div class="goal-input-row">
+            <div class="number-input-wrap">
+              <button class="num-btn" onclick="changeGoal(-1)">−</button>
+              <input class="num-field" type="number" id="goalInput" value="5" min="1" max="50" oninput="updateEstimate()">
+              <button class="num-btn" onclick="changeGoal(1)">+</button>
+            </div>
+            <span class="goal-unit" id="goalUnit">interviews</span>
+          </div>
+
+          <div class="max-spend-row" id="maxSpendRow">
+            <label>Set a max budget (optional):</label>
+            <div class="spend-input-wrap">
+              <span>$</span>
+              <input type="number" id="maxSpend" placeholder="e.g. 500" oninput="updateEstimate()">
+            </div>
+            <span class="helper-text" style="margin:0">leave blank for no limit</span>
+          </div>
+        </div>
+
+        <!-- RESULTS -->
+        <div class="results-panel" id="resultsPanel">
+          <div class="results-header">
+            ✦ Estimated outcomes — Workstream Talent Community
+          </div>
+          <div class="results-body">
+            <div class="results-grid">
+              <div class="result-stat">
+                <div class="val" id="res-reach">1,850</div>
+                <div class="lbl">Members notified</div>
+              </div>
+              <div class="result-stat">
+                <div class="val" id="res-candidates">13</div>
+                <div class="lbl">Expected candidates</div>
+              </div>
+              <div class="result-stat">
+                <div class="val" id="res-interviews">5</div>
+                <div class="lbl">Expected interviews</div>
+              </div>
+            </div>
+
+            <div class="comparison-wrap">
+              <div class="comparison-header">
+                <div class="comp-col-head">Metric</div>
+                <div class="comp-col-head ws">🟢 Workstream TC</div>
+                <div class="comp-col-head indeed">⚪ Indeed Sponsored</div>
+              </div>
+              <div class="comp-row">
+                <div class="comp-cell metric">Cost per interview</div>
+                <div class="comp-cell ws-val" id="cmp-cpi">$32 <span class="win-badge">↓63%</span></div>
+                <div class="comp-cell indeed-val">$85</div>
+              </div>
+              <div class="comp-row">
+                <div class="comp-cell metric">Show rate</div>
+                <div class="comp-cell ws-val">62% <span class="win-badge">3.4×</span></div>
+                <div class="comp-cell indeed-val">18%</div>
+              </div>
+              <div class="comp-row">
+                <div class="comp-cell metric">Avg. response time</div>
+                <div class="comp-cell ws-val">2.1 hrs <span class="win-badge">faster</span></div>
+                <div class="comp-cell indeed-val">14+ hrs</div>
+              </div>
+              <div class="comp-row">
+                <div class="comp-cell metric">Location match</div>
+                <div class="comp-cell ws-val">Within 8 mi <span class="win-badge">targeted</span></div>
+                <div class="comp-cell indeed-val">Unfiltered</div>
+              </div>
+              <div class="comp-row">
+                <div class="comp-cell metric">Suggested spend</div>
+                <div class="comp-cell ws-val" id="cmp-spend-ws">$160</div>
+                <div class="comp-cell indeed-val" id="cmp-spend-indeed">$425</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="goToStep(2)">← Back</button>
+          <button class="btn btn-primary" onclick="completeStep(3)">Review &amp; Approve →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4: APPROVE -->
+    <div class="step-card" id="step4">
+      <div class="step-header" onclick="toggleStep(4)">
+        <div class="step-num"><span>4</span></div>
+        <div class="step-title-wrap">
+          <div class="step-title">Review &amp; approve</div>
+          <div class="step-subtitle">Confirm your sponsorship details</div>
+        </div>
+        <div class="step-summary" id="step4-summary" style="display:none"></div>
+      </div>
+      <div class="step-body">
+
+        <div class="approval-box" id="approvalBox">
+          <div class="approval-title">✦ Sponsorship Summary</div>
+
+          <div class="approval-line">
+            <span>Job posting</span>
+            <span class="val" id="appr-job">Back of House Team Member — Sandy, UT</span>
+          </div>
+          <div class="approval-line">
+            <span>Goal</span>
+            <span class="val" id="appr-goal">5 interviews</span>
+          </div>
+          <div class="approval-line">
+            <span>Members to be notified</span>
+            <span class="val" id="appr-reach">~1,850</span>
+          </div>
+          <div class="approval-line">
+            <span>Expected candidates</span>
+            <span class="val" id="appr-candidates">~13</span>
+          </div>
+          <div class="approval-line">
+            <span>Cost per interview</span>
+            <span class="val">$32 <span class="pill pill-green">vs $85 on Indeed</span></span>
+          </div>
+          <div class="approval-line">
+            <span>Equivalent Indeed spend</span>
+            <span class="val" id="appr-indeed-equiv" style="text-decoration:line-through;color:var(--text3)">$425</span>
+          </div>
+          <div class="approval-total">
+            <span>Total spend</span>
+            <span class="val" id="appr-total">$160</span>
+          </div>
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-secondary" onclick="goToStep(3)">← Back</button>
+          <button class="btn btn-green" onclick="confirmSponsor()">✓ Confirm &amp; Sponsor</button>
+        </div>
+
+        <!-- CONFIRMATION -->
+        <div class="confirmation-box" id="confirmationBox">
+          <div class="conf-icon">✓</div>
+          <div class="conf-title">You're live on the Talent Community!</div>
+          <div class="conf-sub" id="conf-sub">Your job posting is now being matched to nearby hourly workers in our network.</div>
+
+          <div class="timeline-steps">
+            <div class="timeline-step">
+              <div class="tl-dot done">✓</div>
+              <div class="tl-content">
+                <div class="tl-title">Job submitted for matching</div>
+                <div class="tl-time">Now — complete</div>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="tl-dot pending">→</div>
+              <div class="tl-content">
+                <div class="tl-title">Notifications sent to matched members</div>
+                <div class="tl-time">Within 1–2 hours</div>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="tl-dot">3</div>
+              <div class="tl-content">
+                <div class="tl-title">First candidates appear in your inbox</div>
+                <div class="tl-time">Within 24 hours</div>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="tl-dot">4</div>
+              <div class="tl-content">
+                <div class="tl-title">Expected interviews completed</div>
+                <div class="tl-time">Within 3–5 business days</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-row" style="justify-content:center;margin-top:24px;">
+            <button class="btn btn-secondary" onclick="viewApplicants()">View Applicants →</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ─── STATE ──────────────────────────────────────────────────
+const state = {
+  selectedJob: null,
+  selectedJobLoc: null,
+  mode: 'interviews',
+  goal: 5,
+  maxSpend: null,
+  step: 1
+};
+
+// ─── RATES ──────────────────────────────────────────────────
+const rates = {
+  budget:     { cpi: 32, applicantRate: 0.38, showRate: 0.62, indeedCpi: 85, reachPerDollar: 11.5 },
+  candidates: { cpi: 32, applicantRate: 0.38, showRate: 0.62, indeedCpi: 85, costPerCandidate: 12 },
+  interviews: { cpi: 32, applicantRate: 0.38, showRate: 0.62, indeedCpi: 85, costPerInterview: 32 }
+};
+
+// ─── STEP NAVIGATION ────────────────────────────────────────
+function goToStep(n) {
+  state.step = n;
+  for (let i = 1; i <= 4; i++) {
+    const card = document.getElementById(`step${i}`);
+    card.classList.remove('active');
+    if (i < n) card.classList.add('completed');
+    else card.classList.remove('completed');
+  }
+  document.getElementById(`step${n}`).classList.add('active');
+  updateProgress();
+  document.getElementById(`step${n}`).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function toggleStep(n) {
+  if (n <= state.step || document.getElementById(`step${n}`).classList.contains('completed')) {
+    goToStep(n);
+  }
+}
+
+function completeStep(n) {
+  const summary = getSummary(n);
+  const el = document.getElementById(`step${n}-summary`);
+  el.textContent = summary;
+  el.style.display = 'block';
+  goToStep(n + 1);
+  if (n === 3) updateApproval();
+}
+
+function getSummary(n) {
+  if (n === 1) return state.selectedJob || '';
+  if (n === 2) return { budget: 'By budget', candidates: 'By candidates', interviews: 'By interviews' }[state.mode];
+  if (n === 3) {
+    const est = getEstimates();
+    return `${state.goal} ${state.mode} → $${est.spend}`;
+  }
+  return '';
+}
+
+function updateProgress() {
+  const pct = { 1: 25, 2: 50, 3: 75, 4: 100 }[state.step];
+  document.getElementById('progressBar').style.width = pct + '%';
+}
+
+// ─── JOB SELECTION ──────────────────────────────────────────
+function selectJob(el, name, loc) {
+  document.querySelectorAll('.job-option').forEach(j => j.classList.remove('selected'));
+  el.classList.add('selected');
+  state.selectedJob = name;
+  state.selectedJobLoc = loc;
+  document.getElementById('step1-next').disabled = false;
+}
+
+// ─── MODE SELECTION ─────────────────────────────────────────
+function selectMode(el, mode) {
+  document.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  state.mode = mode;
+  updateStep3UI();
+}
+
+function updateStep3UI() {
+  const labels = {
+    budget:     { title: 'Set your budget', sub: 'We\'ll show how many candidates and interviews to expect', goal: 'How much do you want to spend?', unit: 'dollars' },
+    candidates: { title: 'Set your candidate goal', sub: 'We\'ll suggest a spend and show expected outcomes', goal: 'How many candidates do you want?', unit: 'candidates' },
+    interviews: { title: 'Set your interview goal', sub: 'We\'ll suggest a spend and show expected outcomes', goal: 'How many interviews do you want?', unit: 'interviews' }
+  };
+  const l = labels[state.mode];
+  document.getElementById('step3-title').textContent = l.title;
+  document.getElementById('step3-sub').textContent = l.sub;
+  document.getElementById('goalLabel').textContent = l.goal;
+  document.getElementById('goalUnit').textContent = l.unit;
+  document.getElementById('maxSpendRow').style.display = state.mode === 'budget' ? 'none' : 'flex';
+  updateEstimate();
+}
+
+// ─── ESTIMATES ──────────────────────────────────────────────
+function getEstimates() {
+  const g = parseInt(document.getElementById('goalInput').value) || 1;
+  state.goal = g;
+
+  let spend, candidates, interviews, reach;
+  const r = rates[state.mode];
+
+  if (state.mode === 'interviews') {
+    interviews = g;
+    spend = Math.round(interviews * r.costPerInterview);
+    candidates = Math.round(interviews / r.showRate);
+    reach = Math.round(spend * 11.5);
+  } else if (state.mode === 'candidates') {
+    candidates = g;
+    spend = Math.round(candidates * r.costPerCandidate);
+    interviews = Math.round(candidates * r.showRate);
+    reach = Math.round(spend * 11.5);
+  } else {
+    spend = g;
+    reach = Math.round(g * r.reachPerDollar);
+    candidates = Math.round(g / r.costPerCandidate);
+    interviews = Math.round(candidates * r.showRate);
+  }
+
+  const maxS = parseInt(document.getElementById('maxSpend')?.value);
+  if (!isNaN(maxS) && maxS > 0 && spend > maxS) {
+    spend = maxS;
+    if (state.mode === 'interviews') {
+      interviews = Math.floor(spend / r.costPerInterview);
+      candidates = Math.round(interviews / r.showRate);
+    }
+    reach = Math.round(spend * 11.5);
+  }
+
+  const indeedSpend = Math.round(interviews * r.indeedCpi);
+
+  return { spend, candidates, interviews, reach, indeedSpend };
+}
+
+function updateEstimate() {
+  const est = getEstimates();
+  document.getElementById('res-reach').textContent = est.reach.toLocaleString();
+  document.getElementById('res-candidates').textContent = est.candidates;
+  document.getElementById('res-interviews').textContent = est.interviews;
+  document.getElementById('cmp-spend-ws').textContent = '$' + est.spend.toLocaleString();
+  document.getElementById('cmp-spend-indeed').textContent = '$' + est.indeedSpend.toLocaleString();
+  const savings = Math.round(((est.indeedSpend - est.spend) / est.indeedSpend) * 100);
+  document.getElementById('cmp-cpi').innerHTML = `$32 <span class="win-badge">↓${savings}%</span>`;
+}
+
+function changeGoal(delta) {
+  const inp = document.getElementById('goalInput');
+  const val = Math.max(1, Math.min(50, (parseInt(inp.value) || 1) + delta));
+  inp.value = val;
+  updateEstimate();
+}
+
+// ─── APPROVAL ───────────────────────────────────────────────
+function updateApproval() {
+  const est = getEstimates();
+  document.getElementById('appr-job').textContent = (state.selectedJob || 'Selected Job') + ' — ' + (state.selectedJobLoc || '');
+  document.getElementById('appr-goal').textContent = state.goal + ' ' + state.mode;
+  document.getElementById('appr-reach').textContent = '~' + est.reach.toLocaleString();
+  document.getElementById('appr-candidates').textContent = '~' + est.candidates;
+  document.getElementById('appr-indeed-equiv').textContent = '$' + est.indeedSpend.toLocaleString();
+  document.getElementById('appr-total').textContent = '$' + est.spend.toLocaleString();
+}
+
+// ─── CONFIRM ────────────────────────────────────────────────
+function confirmSponsor() {
+  document.getElementById('approvalBox').style.display = 'none';
+  document.querySelector('.btn-row:last-child').style.display = 'none';
+  document.getElementById('confirmationBox').classList.add('show');
+  const est = getEstimates();
+  document.getElementById('conf-sub').textContent =
+    `Your "${state.selectedJob}" posting is now being matched to hourly workers within 8 miles of ${state.selectedJobLoc}. Expect your first ${est.interviews} interviews within 3–5 business days.`;
+
+  // mark step 4 complete visually
+  document.getElementById('step4').classList.add('completed');
+  document.getElementById('progressBar').style.width = '100%';
+}
+
+function viewApplicants() {
+  alert('Navigating to Applicants… (this would route to the Applicants page in the real app)');
+}
+
+// ─── INIT ────────────────────────────────────────────────────
+updateEstimate();
+updateStep3UI();
+</script>
+</body>
+</html>
