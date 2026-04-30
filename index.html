@@ -963,21 +963,21 @@ input[type=number] { -moz-appearance: textfield; }
       </div>
       <div class="step-body">
         <div class="mode-grid">
-          <div class="mode-card" onclick="selectMode(this, 'budget')">
-            <div class="mode-icon">💰</div>
-            <div class="mode-title">Set a budget</div>
-            <div class="mode-desc">Enter how much you want to spend and see how many candidates to expect</div>
+          <div class="mode-card selected" onclick="selectMode(this, 'interviews')">
+            <div class="mode-badge">DEFAULT</div>
+            <div class="mode-icon">🗓️</div>
+            <div class="mode-title">Set an interview goal</div>
+            <div class="mode-desc">Tell us how many interviews you want and we'll suggest what to budget</div>
           </div>
           <div class="mode-card" onclick="selectMode(this, 'candidates')">
             <div class="mode-icon">👥</div>
             <div class="mode-title">Set a candidate goal</div>
             <div class="mode-desc">Tell us how many candidates you want and we'll suggest a spend</div>
           </div>
-          <div class="mode-card selected" onclick="selectMode(this, 'interviews')">
-            <div class="mode-badge">DEFAULT</div>
-            <div class="mode-icon">🗓️</div>
-            <div class="mode-title">Set an interview goal</div>
-            <div class="mode-desc">Tell us how many interviews you want and we'll suggest what to budget</div>
+          <div class="mode-card" onclick="selectMode(this, 'budget')">
+            <div class="mode-icon">💰</div>
+            <div class="mode-title">Set a budget</div>
+            <div class="mode-desc">Enter how much you want to spend and see how many candidates to expect</div>
           </div>
         </div>
         <div class="btn-row">
